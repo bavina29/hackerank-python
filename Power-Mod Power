@@ -1,0 +1,11 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Read the three integers from separate lines
+a = int(input())
+b = int(input())
+m = int(input())
+
+# Line 1: Standard power (a raised to the power of b)
+print(pow(a, b))
+
+# Line 2: Modular exponentiation (a raised to the power of b, modulo m)
+print(pow(a, b, m))
