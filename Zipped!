@@ -1,0 +1,16 @@
+# Read N (students) and X (subjects)
+n, x = map(int, input().split())
+
+# Collect all subject marks into a list of lists
+marks = []
+for _ in range(x):
+    marks.append(list(map(float, input().split())))
+
+# Use zip(*marks) to group scores by student
+# Instead of [subject1, subject2, subject3], 
+# we get [(s1_m1, s1_m2, s1_m3), (s2_m1, s2_m2, s2_m3)...]
+for student_marks in zip(*marks):
+    # Calculate the average for each student
+    average = sum(student_marks) / x
+    # Print the result formatted to 1 decimal place
+    print(f"{average:.1f}")
