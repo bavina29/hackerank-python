@@ -1,0 +1,17 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+s = input()
+
+# We define a custom sorting key function
+def sort_key(c):
+    if c.islower():
+        return (0, c)
+    elif c.isupper():
+        return (1, c)
+    elif c.isdigit():
+        if int(c) % 2 != 0:
+            return (2, c) # Odd digits
+        else:
+            return (3, c) # Even digits
+
+# Sort the string using the custom key and join the result
+print("".join(sorted(s, key=sort_key)))
