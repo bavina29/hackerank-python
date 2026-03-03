@@ -1,0 +1,4 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n = input()
+s = input().split()
+print(all(int(i) > 0 for i in s) and any(i == i[::-1] for i in s))
