@@ -1,0 +1,8 @@
+# Read x and k
+x, k = map(int, input().split())
+
+# Read the polynomial string
+polynomial = input()
+
+# Evaluate the polynomial string using the variable x defined above
+print(eval(polynomial) == k)
