@@ -1,0 +1,16 @@
+import re
+
+# Read dimensions
+n, m = map(int, input().split())
+
+# Read the matrix
+matrix = [input() for _ in range(n)]
+
+# Transpose and join to read column-wise
+decoded_string = "".join(["".join(column) for column in zip(*matrix)])
+
+# Replace symbols between alphanumeric characters with a single space
+# \w matches [a-zA-Z0-9_]
+final_output = re.sub(r'(?<=\w)([^\w]+)(?=\w)', ' ', decoded_string)
+
+print(final_output)
