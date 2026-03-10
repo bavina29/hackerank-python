@@ -1,0 +1,27 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+# Read the number of elements in set A
+n_a = int(input())
+
+# Read the initial set A
+set_a = set(map(int, input().split()))
+
+# Read the number of other sets/operations
+n_ops = int(input())
+
+for _ in range(n_ops):
+    # Read the operation name and the size of the next set
+    # We only need the operation name, so we split and take index 0
+    operation_info = input().split()
+    operation_name = operation_info[0]
+    
+    # Read the elements of the other set
+    other_set = set(map(int, input().split()))
+    
+    # Dynamically call the set method on set_a
+    # getattr(set_a, "update")(other_set) is same as set_a.update(other_set)
+    if hasattr(set_a, operation_name):
+        method = getattr(set_a, operation_name)
+        method(other_set)
+
+# Print the sum of the elements remaining in set A
+print(sum(set_a))
