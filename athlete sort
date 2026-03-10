@@ -1,0 +1,19 @@
+import sys
+
+if __name__ == "__main__":
+    # Read N and M
+    n, m = map(int, input().split())
+
+    # Read the athlete data into a list
+    rows = [list(map(int, input().split())) for _ in range(n)]
+
+    # Read the index K
+    k = int(input())
+
+    # Sort the list using the K-th element as the key
+    # Python's sort is stable by default
+    rows.sort(key=lambda x: x[k])
+
+    # Print the resulting table
+    for row in rows:
+        print(*row)
