@@ -1,0 +1,33 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+import re
+
+# Read the number of test cases
+try:
+    t = int(input())
+except EOFError:
+    t = 0
+
+# Regular Expression breakdown:
+# ^[+-]? : Starts with an optional + or -
+# [0-9]* : Followed by zero or more digits
+# \.      : Must contain exactly one decimal point
+# [0-9]+ : Must be followed by at least one digit
+# $      : Ensures the string ends after the digits
+pattern = r'^[+-]?[0-9]*\.[0-9]+$'
+
+for _ in range(t):
+    s = input().strip()
+    
+    # 1. Check against the regex pattern for structural validity
+    # 2. Try to convert to float to catch any other edge cases
+    try:
+        is_valid_format = bool(re.match(pattern, s))
+        # Note: float(s) would accept "12.", but our task forbids it,
+        # so we rely on the regex for the "at least one decimal value" rule.
+        if is_valid_format:
+            float(s)
+            print(True)
+        else:
+            print(False)
+    except ValueError:
+        print(False)
